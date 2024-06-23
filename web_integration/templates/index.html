@@ -1,0 +1,24 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hugging Face Text Generation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hugging Face Text Generation</h1>
+        <form action="/generate" method="post">
+            <label for="prompt">Enter your text prompt:</label><br>
+            <textarea id="prompt" name="prompt" rows="4" cols="50"></textarea><br><br>
+            <input type="submit" value="Generate Text">
+        </form>
+        {% if prompt %}
+        <h2>Generated Text:</h2>
+        <p>{{ generated_text }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
